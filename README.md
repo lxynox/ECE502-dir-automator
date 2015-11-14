@@ -8,6 +8,7 @@
 ## App directory structure simplified introduction
 ```
   - mac-bash: mac version created for mac osx PC users
+  
   - windows-cmd: windows version created for windows PC Users
     - creator.bat
         the laucnher of the program user first time accessed from here

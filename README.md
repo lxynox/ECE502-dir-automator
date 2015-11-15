@@ -5,7 +5,7 @@
   - zip all the folders (all the containing homework files)
   - more interactive functionalities to increase its usability
 
-## App directory structure simplified introduction
+## App directory structure overview 
 ```
   - mac-bash: mac version created for mac osx PC users
   
@@ -18,7 +18,7 @@
         call this command when user choose to zip this homework for submission
 ```
 
-## Expected homework output directory layout
+## Expected homework directory layout
 ```
   - ECE502_HWGENERATOR
     - homework_version

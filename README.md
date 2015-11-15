@@ -33,4 +33,5 @@
 ```
 
 > For windows, default generated output directories should be located at: %HOME%\Desktop\
+
 > For mac osx, default location should be: $HOME/Desktop/

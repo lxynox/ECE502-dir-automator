@@ -1,4 +1,4 @@
-# This an windows command line based simple auto folder-creation tool
+# This is a cmd/terminal based simple auto folder-creation tool
 > planned functionalities:
   - right folder structure for ECE502 homework
   - user option to DIY folder, file(text, image, audio) etc

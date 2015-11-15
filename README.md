@@ -10,8 +10,8 @@
   - mac-bash: mac version created for mac osx PC users
   
   - windows-cmd: windows version created for windows PC Users
-    - creator.bat
-        the laucnher of the program user first time accessed from here
+    - laucher.bat
+        the laucnher of the program from where the user first start the program (Facade Design preferred)
     - modifier.bat
         call this command when user choose to modify the config file the on cmd
     - zipper.bat
@@ -32,4 +32,5 @@
       ......
 ```
 
-
+> For windows, default generated output directories should be located at: %HOME%\Desktop\
+> For mac osx, default location should be: $HOME/Desktop/

@@ -1,5 +1,5 @@
 # This is a cmd/terminal based simple auto folder-creation tool
-> planned functionalities:
+planned functionalities:
   - right folder structure for ECE502 homework
   - user option to DIY folder, file(text, image, audio) etc
   - zip all the folders (all the containing homework files)
@@ -31,6 +31,9 @@
       - assignment_3
       ......
 ```
+
+## Artifact preview
+<img width=500 height=500 src="demo_pic.png" alt="artifact picture previvew" />
 
 > For windows, default generated output directories should be located at: %HOME%\Desktop\
 

@@ -33,7 +33,7 @@ planned functionalities:
 ```
 
 ## Artifact preview
-<img width=500 height=500 src="demo_pic.png" alt="artifact picture previvew" />
+<img width=300 height=300 src="demo_pic.PNG" alt="artifact picture previvew" />
 
 > For windows, default generated output directories should be located at: %HOME%\Desktop\
 

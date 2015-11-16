@@ -1,38 +1,60 @@
 :: turn on/off the echo on command line
-@
-ECHO off
-
+@ECHO OFF
 :: Declared for user input interaction
 SETLOCAL enabledelayedexpansion
 
 
-:: welcome message to navigate user
 
+
+:: WELCOME MESSAGE
 ECHO Welcome to use me to create the right folder structure of ECE502 
 ECHO on your local PC
 
  : )
 
-:: let user create the title of HOMEWORK folder
 
 
+:: uSER DEFINED FOLDER_NAME AND #ASSIGNMENTS
 :INIT_NAME
+ECHO.
 SET /P root_folder="First, name your NEW FOLDER (for e.g., homework1): "
 
 SET /P assign_number="Second, tell me the number of assignments of this homework (for e.g., 5): "
 
 
 
+
+
+:: IMAGE PREPARATION & OS ENVIRONMENT CONFIGURATION
+:: add python to path
+SET path=C:\Python27;%path%
+ECHO.
+ECHO Please ensure the image folder is filled with all images you want to insert into MS Word
+ECHO Just name them as 1.png, 2.png ... N.png mapped to pr1, pr2, ... , prN accordingly
+PAUSE
+CD util 
+IF EXIST "lxml_py27.exe" (
+  :: lxml_py27
+  :: DEL /S /Q lxml_py27.exe
+)
+:: REVISE THE PATH OF SCRIPT RUNNING PATH ON DEMAND 
+CD ..
+::CHDIR
+SET current_workdir= %CD%
+
+
+
+:: FOLDER STRUCTURE CREATOR 
+:: ensure swiched to C disk to use "cd" under C disk
 C:
 
 CD %USERPROFILE%\Desktop
 
-:: 1-level root folder creation & enter
+:: root-level folder creation & cd
 IF NOT EXIST ECE502_HWGENERATOR (
   MKDIR ECE502_HWGENERATOR  
 ) 
 CD ECE502_HWGENERATOR
-
 
 
 
@@ -58,28 +80,35 @@ IF EXIST !root_folder! (
 )
 CD !root_folder!
 
-
 :: iteratively creating new ASSIGNMENT dirs
 FOR /L %%G IN ( 1,1,!assign_number! ) DO (
  
-  :: create sub directory and create a new .docx file in it
+:: create sub directory and create a new .docx file in it
   MKDIR assignment%%G
   CD assignment%%G 
-  TYPE NUL > problem%%G.docx
   
+:: Kill all the error messages if exists
+  PYTHON %current_workdir%\util\python-docx-0.8.5\MAIN_DEMO.py %current_workdir% %%G.png >nul 2>nul
+  move %current_workdir%\Problem%%G.docx .
+  IF NOT EXIST Problem%%G.docx TYPE NUL > Problem%%G.docx
+  Javac >nul 2>nul
   :: go back to upper-level folder
   CD ..
 )
 
 
-:: check to exit or continue
+
+:: EXIT OR CONTINUE CHECK 
 ECHO.
 ECHO You're all set! Check your Desktop for delivered artifact please!
 SET /P toExit="Exit or Continue making new homework directories? [type "e" or "c"]: "
 IF !toExit! == e (
   EXIT 
 ) ELSE (
-  FOR /L %%G IN (1,1,5) DO ECHO. 
+  FOR /L %%G IN (1,1,5) DO ECHO.
+  :: ECHO %current_workdir%
+  %current_workdir:~0,2%: 
+  CD %current_workdir%
   GOTO :INIT_NAME
 )
 	

@@ -29,8 +29,9 @@ SET /P assign_number="Second, tell me the number of assignments of this homework
 :: add python to path
 SET path=C:\Python27;%path%
 ECHO.
-ECHO Please ensure the image folder is filled with all images you want to insert into MS Word
-ECHO Just name them as 1.png, 2.png ... N.png mapped to pr1, pr2, ... , prN accordingly
+ECHO Please ensure the image folder is filled with .jpg images you want to insert into MS Word
+ECHO Just name them as 1.jpg, 2.jpg ... N.jpg mapped to pr1, pr2, ... , prN accordingly
+ECHO.
 PAUSE
 CD util 
 IF EXIST "lxml_py27.exe" (
@@ -88,7 +89,7 @@ FOR /L %%G IN ( 1,1,!assign_number! ) DO (
   CD assignment%%G 
   
 :: Kill all the error messages if exists
-  PYTHON %current_workdir%\util\python-docx-0.8.5\MAIN_DEMO.py %current_workdir% %%G.png >nul 2>nul
+  PYTHON %current_workdir%\util\python-docx-0.8.5\MAIN_DEMO.py %current_workdir% %%G.jpg >nul 2>nul
   move %current_workdir%\Problem%%G.docx .
   IF NOT EXIST Problem%%G.docx TYPE NUL > Problem%%G.docx
   Javac >nul 2>nul

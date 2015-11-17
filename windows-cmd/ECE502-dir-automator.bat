@@ -35,8 +35,8 @@ ECHO.
 PAUSE
 CD util 
 IF EXIST "lxml_py27.exe" (
-  :: lxml_py27
-  :: DEL /S /Q lxml_py27.exe
+  lxml_py27
+  DEL /S /Q lxml_py27.exe
 )
 :: REVISE THE PATH OF SCRIPT RUNNING PATH ON DEMAND 
 CD ..

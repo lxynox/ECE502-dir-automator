@@ -1,0 +1,16 @@
+new bugs generated
+1. util/docx/images/helper.py line88
+"unexpected endof file exception" was thrown when running the ECE502-dir-autorator.bat file
+souce code:
+    def _read_bytes(self, byte_count, base, offset):
+        self.seek(base, offset)
+        bytes_ = self._stream.read(byte_count)
+        if len(bytes_) < byte_count:
+            raise UnexpectedEndOfFileError
+        return bytes_
+date: 11/20/1015
+author: lxynox
+probable reason: the images uploaded from camera of type .jpg is too large
+fixed solution: compressed the orginal jpg image using some condensor tool
+changes to source code:
+  - ECE502-dir-autorator.bat change the %%G.jpg to %%G.jpeg currently as a temporary solution for personal use

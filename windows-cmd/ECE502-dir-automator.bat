@@ -89,10 +89,9 @@ FOR /L %%G IN ( 1,1,!assign_number! ) DO (
   CD assignment%%G 
   
 :: Kill all the error messages if exists
-  PYTHON %current_workdir%\util\python-docx-0.8.5\MAIN_DEMO.py %current_workdir% %%G.jpg >nul 2>nul
+  PYTHON %current_workdir%\util\python-docx-0.8.5\MAIN_DEMO.py %current_workdir% %%G.jpeg >nul 2>nul
   move %current_workdir%\Problem%%G.docx .
   IF NOT EXIST Problem%%G.docx TYPE NUL > Problem%%G.docx
-  Javac >nul 2>nul
   :: go back to upper-level folder
   CD ..
 )
